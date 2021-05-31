@@ -3,9 +3,9 @@
     "target": "es2019",
     "outDir": "build",
     "module": "commonjs",
-    "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "watch": true
   }
 }
