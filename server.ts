@@ -4,12 +4,16 @@ import cors from "cors";
 import mongoose from "mongoose";
 import User from "./models/user";
 import jwt from "jsonwebtoken";
+import setupWebSocketServer from "./webstocket";
+import "dotenv/config";
 
-require("dotenv").config();
 const app = express();
 
 const JWT_SECRECT_TOKEN = "jfniknfihiofh2ihfi2h3fioh2fiojs9fhj9sdfhkjfoj3";
-mongoose.connect(process.env.MONGO_URL);
+
+mongoose.connect(
+  "mongodb+srv://admin:3ynp6SfeLgeHPYSx@cluster0.e59j9.mongodb.net/messageroom?retryWrites=true&w=majority"
+);
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -61,3 +65,4 @@ app.post("/api/login", async (req, res) => {
 });
 
 app.listen(1337);
+setupWebSocketServer();

@@ -9,6 +9,8 @@ const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const user_1 = __importDefault(require("./models/user"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const webstocket_1 = __importDefault(require("./webstocket"));
+require("dotenv/config");
 const app = express_1.default();
 const JWT_SECRECT_TOKEN = "jfniknfihiofh2ihfi2h3fioh2fiojs9fhj9sdfhkjfoj3";
 mongoose_1.default.connect("mongodb+srv://admin:3ynp6SfeLgeHPYSx@cluster0.e59j9.mongodb.net/messageroom?retryWrites=true&w=majority");
@@ -48,3 +50,4 @@ app.post("/api/login", async (req, res) => {
     return res.json({ status: "ok", data: payload });
 });
 app.listen(1337);
+webstocket_1.default();
